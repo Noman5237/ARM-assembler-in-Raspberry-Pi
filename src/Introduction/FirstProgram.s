@@ -10,6 +10,6 @@
 .global main				@ main is our entry point and must be global
 
 main:								@ this is main
-	mov r0, #2				@ r0 = 2
+	mov r0, #5				@ r0 = 2
 	bx lr							@ branch and exchange, jump to the location of whatever is inside lr
 										@ for now, this instruction just leaves the main function
