@@ -30,5 +30,13 @@ Memory/Store01: src/Memory/Store01.s
 	$(call compile,Memory,Store01)
 	$(call execute,Memory,Store01)
 
+Memory/LDR: src/Memory/LDR.s
+	$(call compile,Memory,LDR)
+	$(call execute,Memory,LDR)
+
+Memory/LoadPseudo: src/Memory/LoadPseudo.s
+	$(call compile,Memory,LoadPseudo)
+	$(call execute,Memory,LoadPseudo)
+
 clean:
 	rm -rf out
