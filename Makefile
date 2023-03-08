@@ -1,17 +1,27 @@
 # write a function that executes a program and returns the exit code
 define execute
-	$(1)
+	out/$(1)/$(2)
 	echo $$?
 endef
 
-Introduction/FirstProgram: Introduction/FirstProgram.o
-	gcc -o out/Introduction/FirstProgram out/Introduction/FirstProgram.o
-	$(call execute, out/Introduction/FirstProgram)
+# write a function to create a directory and compile the file
+define compile
+	mkdir -p out/$(1)
+	as -g -o out/$(1)/$(2).o src/$(1)/$(2).s
+	gcc -o out/$(1)/$(2) out/$(1)/$(2).o
+endef
 
+Introduction/FirstProgram: src/Introduction/FirstProgram.s
+	$(call compile,Introduction,FirstProgram)
+	$(call execute,Introduction,FirstProgram)
 
-Introduction/FirstProgram.o: src/Introduction/FirstProgram.s
-	mkdir -p out/Introduction
-	as -g -o out/Introduction/FirstProgram.o src/Introduction/FirstProgram.s
+BasicArithmetic/Sum01: src/BasicArithmetic/Sum01.s
+	$(call compile,BasicArithmetic,Sum01)
+	$(call execute,BasicArithmetic,Sum01)
+
+BasicArithmetic/Sum02: src/BasicArithmetic/Sum02.s
+	$(call compile,BasicArithmetic,Sum02)
+	$(call execute,BasicArithmetic,Sum02)
 
 clean:
 	rm -rf out
