@@ -1,0 +1,13 @@
+* Memory
+** Instructions cannot access memory addresses directly
+A bit of digression here, in 386 and x86-64 architectures, instructions can access registers or memory, so we could add two numbers, one of which is in memory. You cannot do this in ARM where all operands must be registers. We can work around this problem (not really a problem but a deliberate decision design that goes beyond the scope of this text) by loading data to a register from memory and storing data from a register to a memory.
+* Addressing Modes
+** Through registers
+It is not by chance that ARM has integer registers of 32 bits and the addresses of the memory are 32 bit numbers. This means that we can keep an address inside a register. Once we have an address inside a register, we can use that register to load or store some piece of data.
+* Data
+** Label
+*** Labels in the assembler are just symbolic names to addresses in your program.
+*** These addresses may refer both to data or code.
+*** A label only denotes an address, never its contents.
+*** assembler tool (as) is left responsible of assigning values to the addresses of the labels
+https://azeria-labs.com/memory-instructions-load-and-store-part-4/
