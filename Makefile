@@ -56,5 +56,18 @@ Branching/Compare01: src/Branching/Compare01.s
 	$(call compile,Branching,Compare01)
 	$(call execute,Branching,Compare01)
 
+# ================================ CONTROL ================================
+ControlStructure/Sum22: src/ControlStructure/Sum22.s
+	$(call compile,ControlStructure,Sum22)
+	$(call execute,ControlStructure,Sum22)
+
+ControlStructure/CollatzConjecture: src/ControlStructure/CollatzConjecture.s
+	$(call compile,ControlStructure,CollatzConjecture)
+	$(call execute,ControlStructure,CollatzConjecture)
+
+ControlStructure/KevinsSum22: src/ControlStructure/KevinsSum22.s
+	$(call compile,ControlStructure,KevinsSum22)
+	$(call execute,ControlStructure,KevinsSum22)
+
 clean:
 	rm -rf out
