@@ -3,13 +3,14 @@ define execute
 	out/$(1)/$(2); echo $$?;
 endef
 
-# write a function to create a directory and compilegcc the file
+# write a function to create a directory and compile the file with gcc
 define compilegcc
 	mkdir -p out/$(1)
 	as -g -o out/$(1)/$(2).o src/$(1)/$(2).s
 	gcc -o out/$(1)/$(2) out/$(1)/$(2).o
 endef
 
+# write a function to create a directory and compile the file with as
 define compile
 	mkdir -p out/$(1)
 	as -g -o out/$(1)/$(2).o src/$(1)/$(2).s
@@ -69,5 +70,15 @@ ControlStructure/KevinsSum22: src/ControlStructure/KevinsSum22.s
 	$(call compile,ControlStructure,KevinsSum22)
 	$(call execute,ControlStructure,KevinsSum22)
 
+# ================================ ARRAY AND STRCUTS ================================
+ArrayNStruct/Array01: src/ArrayNStruct/Array01.s
+	$(call compile,ArrayNStruct,Array01)
+	$(call execute,ArrayNStruct,Array01)
+
+ArrayNStruct/Array02: src/ArrayNStruct/Array02.s
+	$(call compile,ArrayNStruct,Array02)
+	$(call execute,ArrayNStruct,Array02)
+
+# ================================ UTILITY ================================
 clean:
 	rm -rf out
