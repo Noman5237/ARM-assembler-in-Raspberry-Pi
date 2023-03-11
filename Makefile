@@ -1,3 +1,7 @@
+
+# declare a variable flags
+ASM_FLAGS = -march=armv8-a
+
 # write a function that executes a program and returns the exit code
 define execute
 	out/$(1)/$(2); echo $$?;
@@ -6,7 +10,7 @@ endef
 # write a function to create a directory and compile the file with gcc
 define compilegcc
 	mkdir -p out/$(1)
-	as -g -o out/$(1)/$(2).o src/$(1)/$(2).s
+	as $(ASM_FLAGS) -g -o out/$(1)/$(2).o src/$(1)/$(2).s
 	gcc -o out/$(1)/$(2) out/$(1)/$(2).o
 endef
 
@@ -87,6 +91,12 @@ Function/Hello01: src/Function/Hello01.s
 Function/Printf01: src/Function/Printf01.s
 	$(call compilegcc,Function,Printf01)
 	$(call execute,Function,Printf01)
+
+
+# ================================ STACKS ================================
+Stack/Factorial01: src/Stack/Factorial01.s
+	$(call compilegcc,Stack,Factorial01)
+	$(call execute,Stack,Factorial01)
 
 # ================================ UTILITY ================================
 clean:
