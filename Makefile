@@ -79,6 +79,15 @@ ArrayNStruct/Array02: src/ArrayNStruct/Array02.s
 	$(call compile,ArrayNStruct,Array02)
 	$(call execute,ArrayNStruct,Array02)
 
+# ================================ FUNCTIONS ================================
+Function/Hello01: src/Function/Hello01.s
+	$(call compilegcc,Function,Hello01)
+	$(call execute,Function,Hello01)
+
+Function/Printf01: src/Function/Printf01.s
+	$(call compilegcc,Function,Printf01)
+	$(call execute,Function,Printf01)
+
 # ================================ UTILITY ================================
 clean:
 	rm -rf out
