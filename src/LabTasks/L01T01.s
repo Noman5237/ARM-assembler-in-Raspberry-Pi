@@ -213,11 +213,11 @@ itoa:
 			ldr r0, =numeric_chars
 			ldrb r0, [r0, r7]
 
-			@ store character in buffer
-			strb r0, [r4, r1]
-
 			@ decrement buffer size
 			sub r1, r1, #1
+
+			@ store character in buffer
+			strb r0, [r4, r1]
 		itoa__check:
 			@ check if buffer size is 0
 			cmp r1, #0
@@ -266,6 +266,8 @@ _start:
 	@ ldr r0, =num_2
 	@ mov r1, #8
 	@ bl read_user_input
+
+	mov r0, #0
 
 	@ exit
 	mov r7, #1

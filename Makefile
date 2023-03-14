@@ -7,6 +7,10 @@ define execute
 	out/$(1)/$(2); echo $$?;
 endef
 
+define executewecho
+	out/$(1)/$(2);
+endef
+
 # write a function to create a directory and compile the file with gcc
 define compilegcc
 	mkdir -p out/$(1)
@@ -24,7 +28,7 @@ endef
 # ================================ EXERCISES ================================
 LabTasks/L01T01: src/LabTasks/L01T01.s
 	$(call compile,LabTasks,L01T01)
-	$(call execute,LabTasks,L01T01)
+	$(call executewecho,LabTasks,L01T01)
 
 # ================================ INTRODUCTION ================================
 Introduction/FirstProgram: src/Introduction/FirstProgram.s
