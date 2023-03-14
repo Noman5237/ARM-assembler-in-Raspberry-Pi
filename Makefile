@@ -52,6 +52,10 @@ Memory/LoadPseudo: src/Memory/LoadPseudo.s
 	$(call compilegcc,Memory,LoadPseudo)
 	$(call execute,Memory,LoadPseudo)
 
+Memory/LDSTM: src/Memory/LDSTM.s
+	$(call compile,Memory,LDSTM)
+	$(call execute,Memory,LDSTM)
+
 # ================================ BRANCHING ================================
 Branching/Branch01: src/Branching/Branch01.s
 	$(call compilegcc,Branching,Branch01)
