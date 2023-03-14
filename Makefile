@@ -21,6 +21,11 @@ define compile
 	ld -o out/$(1)/$(2) out/$(1)/$(2).o
 endef
 
+# ================================ EXERCISES ================================
+LabTasks/L01T01: src/LabTasks/L01T01.s
+	$(call compile,LabTasks,L01T01)
+	$(call execute,LabTasks,L01T01)
+
 # ================================ INTRODUCTION ================================
 Introduction/FirstProgram: src/Introduction/FirstProgram.s
 	$(call compilegcc,Introduction,FirstProgram)
