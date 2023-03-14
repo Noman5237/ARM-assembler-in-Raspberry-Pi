@@ -245,7 +245,7 @@ _start:
 	@ convert num_1 to integer
 	ldr r0, =num_1
 	mov r1, #8
-	mov r2, #10
+	mov r2, #16
 	bl atoi
 
 	# store num_1 into r4
@@ -259,7 +259,7 @@ _start:
 	@ convert num_1 to integer
 	ldr r0, =num_2
 	mov r1, #8
-	mov r2, #10
+	mov r2, #16
 	bl atoi
 
 	# store num_2 into r5
@@ -272,7 +272,7 @@ _start:
 	mov r2, r0
 	ldr r0, =out_buffer
 	mov r1, #32
-	mov r3, #10
+	mov r3, #16
 	bl itoa
 
 	@ write out_buffer with syscalls
