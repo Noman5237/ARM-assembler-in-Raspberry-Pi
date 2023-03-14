@@ -248,11 +248,31 @@ _start:
 	mov r2, #10
 	bl atoi
 
+	# store num_1 into r4
+	mov r4, r0
+
+	@ read num_1
+	ldr r0, =num_2
+	mov r1, #8
+	bl read_user_input
+
+	@ convert num_1 to integer
+	ldr r0, =num_2
+	mov r1, #8
+	mov r2, #10
+	bl atoi
+
+	# store num_2 into r5
+	mov r5, r0
+
+	# add r4, r5 into r0
+	add r0, r4, r5
+
 	@ convert num_1 to string base 2
 	mov r2, r0
 	ldr r0, =out_buffer
 	mov r1, #32
-	mov r3, #2
+	mov r3, #10
 	bl itoa
 
 	@ write out_buffer with syscalls
